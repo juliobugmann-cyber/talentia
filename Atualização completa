@@ -195,7 +195,7 @@ a{color:inherit;text-decoration:none}
   .price.pop{transform:none}
   .sec{padding:70px 0}
   .trust-grid{gap:24px}
-  .nav-plat{display:none}
+  .nav-plat{padding:8px 16px;font-size:12px}
   body{font-size:15px}
 }
 @media(max-width:480px){
@@ -207,6 +207,12 @@ a{color:inherit;text-decoration:none}
 </style>
 </head>
 <body>
+
+<!-- PLATFORM OPEN/CLOSE FUNCTIONS - MUST BE FIRST -->
+<script>
+function openPlatform(){document.getElementById('platform').classList.add('active');document.body.style.overflow='hidden';}
+function closePlatform(){document.getElementById('platform').classList.remove('active');document.body.style.overflow='';}
+</script>
 
 <!-- ANIMATED PARTICLES BACKGROUND -->
 <canvas id="particles-canvas"></canvas>
@@ -221,15 +227,15 @@ for(let j=i+1;j<pts.length;j++){const d=Math.hypot(p.x-pts[j].x,p.y-pts[j].y);if
 <div id="landing">
 <nav class="nav"><div class="ct" style="display:flex;justify-content:space-between;align-items:center">
   <div class="nav-brand">🧠 <span>ManegAI</span></div>
-  <div class="nav-links"><button class="nav-plat" onclick="openPlatform()">Acessar Plataforma</button><a href="#pricing"><button class="nav-cta">Começar Grátis →</button></a></div>
+  <div class="nav-links"><button class="nav-plat" data-action="open" data-action="open" onclick="openPlatform()">Acessar Plataforma</button><button class="nav-cta" data-action="open" data-action="open" onclick="openPlatform()">Começar Gratis →</button></div>
 </div></nav>
 
 <section class="hero"><div class="ct">
   <div class="hero-tag"><span class="pulse"></span> Plataforma #1 de IA para RH no Brasil</div>
   <h1>Pare de perder dinheiro<br>com contratações erradas.<br><em>Use inteligência artificial.</em></h1>
   <p class="hero-p">A ManegAI avalia candidatos com IA, perfil DISC e análise comportamental. Recrutamento, gestão de pessoas, folha e férias — tudo em um só lugar.</p>
-  <div class="hero-btns"><a href="#pricing"><button class="btn-p">Testar 7 Dias Grátis</button></a><a href="#como"><button class="btn-s">Ver Como Funciona</button></a></div>
-  <div class="hero-proof"><div class="hero-avatars"><span style="background:#6D28D9">JL</span><span style="background:#059669">MO</span><span style="background:#F59E0B">RA</span><span style="background:#3B82F6">CS</span><span style="background:#EF4444">+</span></div><div class="hero-proof-text">Empresas de <b>8 segmentos</b> já usam a ManegAI</div></div>
+  <div class="hero-btns"><button class="btn-p" data-action="open" onclick="openPlatform()">Testar 7 Dias Grátis</button><a href="#como"><button class="btn-s">Ver Como Funciona</button></a></div>
+  <div class="hero-proof"><div class="hero-avatars"><span style="background:#6D28D9">JL</span><span style="background:#059669">MO</span><span style="background:#F59E0B">RA</span><span style="background:#3B82F6">CS</span><span style="background:#EF4444">+</span></div><div class="hero-proof-text">Empresas de <b>20 segmentos</b> já usam a ManegAI</div></div>
   <div class="demo-wrap"><div class="demo-card"><div class="demo-inner">
     <div class="demo-head"><div><div style="font-size:13px;color:var(--td)">Candidata — Comercial</div><div style="font-size:18px;font-weight:700;color:var(--w);margin-top:4px">Maria Oliveira</div></div><div style="text-align:right"><div class="demo-score">94%</div><div class="demo-badge">⭐ EXCEPCIONAL</div></div></div>
     <div class="demo-bar"><div class="demo-bar-top"><span>Proatividade</span><span style="color:var(--eml)">4/4</span></div><div class="demo-bar-bg"><div class="demo-bar-fill" style="width:100%;background:var(--em)"></div></div></div>
@@ -291,9 +297,9 @@ for(let j=i+1;j<pts.length;j++){const d=Math.hypot(p.x-pts[j].x,p.y-pts[j].y);if
 <section class="sec" id="pricing" style="background:radial-gradient(ellipse 50% 35% at 50% 20%,rgba(139,92,246,.08),transparent)"><div class="ct sec-center">
   <div class="sec-tag">Planos</div><div class="sec-title">Menos que uma consultoria<br>cobra por 1 vaga</div><p class="sec-desc">Assinatura mensal. Sem fidelidade. 7 dias grátis para testar.</p>
   <div class="price-grid">
-    <div class="price"><div class="price-name">Starter</div><div class="price-sub">Pequenas empresas</div><div class="price-val">R$ 397<span class="price-per">/mês</span></div><ul class="price-list"><li>30 avaliações/mês</li><li>4 perfis de cargo</li><li>Teste DISC</li><li>Comparativo de candidatos</li><li>Relatório PDF</li></ul><button class="price-btn btn-s" onclick="openPlatform()">Testar 7 Dias Grátis</button></div>
-    <div class="price pop"><div class="price-tag"><span>MAIS POPULAR</span></div><div class="price-name">Professional</div><div class="price-sub">Empresas em crescimento</div><div class="price-val">R$ 697<span class="price-per">/mês</span></div><ul class="price-list"><li>Avaliações ilimitadas</li><li>Perfis customizáveis</li><li>Gestão de Funcionários</li><li>Pagamentos e Férias</li><li>Onboarding com IA</li><li>Pesquisa de Clima</li><li>Suporte prioritário</li></ul><button class="price-btn btn-p" onclick="openPlatform()">Começar Agora</button></div>
-    <div class="price"><div class="price-name">Enterprise</div><div class="price-sub">Grandes operações</div><div class="price-val">R$ 997<span class="price-per">/mês</span></div><ul class="price-list"><li>Tudo do Professional</li><li>Perfis personalizados</li><li>API de integração</li><li>Multi-usuários</li><li>Onboarding dedicado</li><li>SLA de suporte</li></ul><button class="price-btn btn-s" onclick="openPlatform()">Falar com Consultor</button></div>
+    <div class="price"><div class="price-name">Starter</div><div class="price-sub">Pequenas empresas</div><div class="price-val">R$ 397<span class="price-per">/mês</span></div><ul class="price-list"><li>30 avaliações/mês</li><li>8 perfis de cargo</li><li>Teste DISC</li><li>Comparativo de candidatos</li><li>Relatório PDF</li></ul><button class="price-btn btn-s" data-action="open" onclick="openPlatform()">Testar 7 Dias Grátis</button></div>
+    <div class="price pop"><div class="price-tag"><span>MAIS POPULAR</span></div><div class="price-name">Professional</div><div class="price-sub">Empresas em crescimento</div><div class="price-val">R$ 697<span class="price-per">/mês</span></div><ul class="price-list"><li>Avaliações ilimitadas</li><li>Perfis customizáveis</li><li>Gestão de Funcionários</li><li>Pagamentos e Férias</li><li>Onboarding com IA</li><li>Pesquisa de Clima</li><li>Suporte prioritário</li></ul><button class="price-btn btn-p" data-action="open" onclick="openPlatform()">Começar Agora</button></div>
+    <div class="price"><div class="price-name">Enterprise</div><div class="price-sub">Grandes operações</div><div class="price-val">R$ 997<span class="price-per">/mês</span></div><ul class="price-list"><li>Tudo do Professional</li><li>Perfis personalizados</li><li>API de integração</li><li>Multi-usuários</li><li>Onboarding dedicado</li><li>SLA de suporte</li></ul><button class="price-btn btn-s" data-action="open" onclick="openPlatform()">Falar com Consultor</button></div>
   </div>
 </div></section>
 
@@ -325,7 +331,7 @@ for(let j=i+1;j<pts.length;j++){const d=Math.hypot(p.x-pts[j].x,p.y-pts[j].y);if
   <div class="cta-urgency">🔥 Oferta de lançamento — 30% OFF nos primeiros 3 meses</div>
   <div class="cta-title">Sua próxima contratação<br>pode ser a melhor da história<br>da sua empresa.</div>
   <p class="cta-p">Comece agora com 7 dias grátis. Sem cartão. Sem compromisso.</p>
-  <button class="btn-p" style="font-size:19px;padding:20px 52px" onclick="openPlatform()">Começar Agora — É Grátis →</button>
+  <button class="btn-p" style="font-size:19px;padding:20px 52px" data-action="open" onclick="openPlatform()">Começar Agora — É Grátis →</button>
   <p style="font-size:13px;color:var(--td);margin-top:14px">✓ 7 dias grátis &nbsp; ✓ Sem cartão &nbsp; ✓ Cancele quando quiser</p>
 </div></section>
 
@@ -337,35 +343,19 @@ for(let j=i+1;j<pts.length;j++){const d=Math.hypot(p.x-pts[j].x,p.y-pts[j].y);if
 </div>
 
 <div id="platform" class="platform-overlay">
-<button class="platform-close" onclick="closePlatform()">← Voltar ao Site</button>
+<button class="platform-close" data-action="close" onclick="closePlatform()">← Voltar ao Site</button>
 <div id="app-root"></div>
 </div>
-
-<a id="whatsapp-btn" href="https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20na%20ManegAI." target="_blank" rel="noopener" style="position:fixed;bottom:28px;right:28px;z-index:150;width:64px;height:64px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.4);transition:all .3s;cursor:pointer;text-decoration:none" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-  <svg width="34" height="34" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-<div style="position:fixed;bottom:98px;right:28px;z-index:150;background:#25D366;color:#fff;padding:10px 18px;border-radius:20px 20px 4px 20px;font-size:14px;font-weight:600;box-shadow:0 2px 16px rgba(0,0,0,.25);animation:waPulse 3s ease infinite;font-family:'Plus Jakarta Sans',sans-serif">Fale conosco!</div>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 
 <!-- WHATSAPP FLOATING BUTTON -->
 <a id="whatsapp-btn" href="https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20na%20ManegAI.%20Podem%20me%20ajudar?" target="_blank" rel="noopener" style="position:fixed;bottom:24px;right:24px;z-index:150;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:all .3s;cursor:pointer;text-decoration:none" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(37,211,102,.5)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,.4)'">
   <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
-<div style="position:fixed;bottom:90px;right:24px;z-index:150;background:#25D366;color:#fff;padding:8px 16px;border-radius:20px 20px 4px 20px;font-size:12px;font-weight:600;box-shadow:0 2px 12px rgba(0,0,0,.2);animation:waPulse 3s ease infinite;font-family:'Outfit',sans-serif">Fale conosco!</div>
 <style>@keyframes waPulse{0%,100%{opacity:1;transform:translateY(0)}50%{opacity:.7;transform:translateY(-3px)}}</style>
 
-<!-- GOOGLE ANALYTICS (substitua G-XXXXXXXXXX pelo seu ID) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');
-</script>
+<!-- Google Analytics: adicione seu script GA aqui quando tiver o ID -->
 
 <script>
-function openPlatform(){ document.getElementById('platform').classList.add('active'); document.body.style.overflow='hidden'; }
-function closePlatform(){ document.getElementById('platform').classList.remove('active'); document.body.style.overflow=''; }
-
 const LS={get(k){try{const v=localStorage.getItem('tia-'+k);return v?JSON.parse(v):null;}catch{return null;}},set(k,v){try{localStorage.setItem('tia-'+k,JSON.stringify(v));return true;}catch{return false;}}};
 const SE="admin@manegai.com.br",SP="manegai2026";
 const DISC=[
@@ -446,6 +436,106 @@ at:{l:"Atendimento",i:"🎧",c:"#10B981",qs:[
 ]}
 };
 
+// ═══ 12 NOVOS PERFIS DE CARGO (total: 20) ═══
+Object.assign(JOBS,{
+fi:{l:"Financeiro",i:"💲",c:"#059669",qs:[
+{ct:"Análise",q:"Relatório com valor divergente de R$12 mil.",o:[{t:"Aprovo assim",s:1},{t:"Verifico depois",s:2},{t:"Rastreio a origem",s:4},{t:"Peço ao colega",s:3}]},
+{ct:"Prazo",q:"Fechamento contábil é amanhã, faltam conciliações.",o:[{t:"Peço extensão",s:2},{t:"Priorizo críticos",s:4},{t:"Faço tudo rápido",s:1},{t:"Delego parte",s:3}]},
+{ct:"Controle",q:"Gestor pede pagamento sem NF.",o:[{t:"Pago",s:1},{t:"Pago e registro",s:2},{t:"Exijo documentação",s:4},{t:"Consulto superior",s:3}]},
+{ct:"Planejamento",q:"Fluxo de caixa prevê déficit em 30 dias.",o:[{t:"Espero acontecer",s:1},{t:"Aviso gerência",s:3},{t:"Proponho ações",s:4},{t:"Corto gastos",s:2}]},
+{ct:"Compliance",q:"Fornecedor oferece nota com valor maior para 'compensar'.",o:[{t:"Aceito",s:1},{t:"Ignoro",s:2},{t:"Recuso e documento",s:4},{t:"Reporto",s:3}]},
+{ct:"Comunicação",q:"Diretoria pede relatório financeiro urgente.",o:[{t:"Mando cru",s:1},{t:"Peço prazo",s:2},{t:"Entrego claro e visual",s:4},{t:"Delego",s:3}]}
+]},
+mk:{l:"Marketing Digital",i:"📱",c:"#E11D48",qs:[
+{ct:"Estratégia",q:"Campanha com CTR abaixo de 0,5%.",o:[{t:"Mantenho rodando",s:1},{t:"Aumento verba",s:2},{t:"Testo variações A/B",s:4},{t:"Pauso tudo",s:3}]},
+{ct:"Criatividade",q:"Cliente quer post viral mas sem budget para vídeo.",o:[{t:"Digo que não dá",s:1},{t:"Faço imagem simples",s:2},{t:"Crio conteúdo criativo low-cost",s:4},{t:"Sugiro parceria",s:3}]},
+{ct:"Análise",q:"Relatório mostra queda de 40% no engajamento.",o:[{t:"Ignoro",s:1},{t:"Posto mais",s:2},{t:"Analiso causa e ajusto",s:4},{t:"Mudo plataforma",s:3}]},
+{ct:"Prazo",q:"3 campanhas para lançar na mesma semana.",o:[{t:"Faço todas rápido",s:1},{t:"Priorizo ROI",s:4},{t:"Peço extensão",s:2},{t:"Terceirizo",s:3}]},
+{ct:"Atualização",q:"Nova atualização do algoritmo muda alcance.",o:[{t:"Ignoro",s:1},{t:"Reclamo",s:2},{t:"Estudo e adapto",s:4},{t:"Espero estabilizar",s:3}]},
+{ct:"ROI",q:"Cliente questiona retorno do investimento.",o:[{t:"Digo que leva tempo",s:2},{t:"Mostro métricas claras",s:4},{t:"Prometo resultados",s:1},{t:"Sugiro ajustes",s:3}]}
+]},
+rh:{l:"Recursos Humanos",i:"🤝",c:"#7C3AED",qs:[
+{ct:"Seleção",q:"Gestor insiste em contratar amigo sem qualificação.",o:[{t:"Contrato",s:1},{t:"Contrato com ressalva",s:2},{t:"Apresento perfil ideal",s:4},{t:"Recuso direto",s:3}]},
+{ct:"Conflito",q:"Dois funcionários com conflito pessoal afetando equipe.",o:[{t:"Ignoro",s:1},{t:"Separo setores",s:2},{t:"Medio e acompanho",s:4},{t:"Aplico advertência",s:3}]},
+{ct:"Legislação",q:"Funcionário pede horas extras não previstas em contrato.",o:[{t:"Aprovo sem verificar",s:1},{t:"Nego",s:2},{t:"Verifico CLT e oriento",s:4},{t:"Consulto jurídico",s:3}]},
+{ct:"Clima",q:"Pesquisa de clima mostra insatisfação de 60%.",o:[{t:"Arquivo",s:1},{t:"Compartilho resultado",s:2},{t:"Crio plano de ação",s:4},{t:"Reunião geral",s:3}]},
+{ct:"Desligamento",q:"Precisa desligar funcionário antigo e querido pela equipe.",o:[{t:"Adio indefinidamente",s:1},{t:"Demito por e-mail",s:2},{t:"Processo humanizado",s:4},{t:"Peço ao gestor",s:3}]},
+{ct:"Desenvolvimento",q:"Orçamento cortado para treinamentos.",o:[{t:"Cancelo tudo",s:1},{t:"Reclamo",s:2},{t:"Busco alternativas gratuitas",s:4},{t:"Priorizo essenciais",s:3}]}
+]},
+en:{l:"Engenharia",i:"🏗️",c:"#0891B2",qs:[
+{ct:"Técnica",q:"Projeto com erro de cálculo estrutural detectado na obra.",o:[{t:"Ignoro se pequeno",s:1},{t:"Ajusto no campo",s:2},{t:"Paro e recalculo",s:4},{t:"Consulto especialista",s:3}]},
+{ct:"Prazo",q:"Obra 3 semanas atrasada, cliente cobrando.",o:[{t:"Prometo data irreal",s:1},{t:"Justifico",s:2},{t:"Replaneio e comunico",s:4},{t:"Acelero sem controle",s:3}]},
+{ct:"Segurança",q:"Equipe trabalhando sem EPI adequado.",o:[{t:"Continuo",s:1},{t:"Aviso depois",s:2},{t:"Paro e regularizo",s:4},{t:"Registro ocorrência",s:3}]},
+{ct:"Orçamento",q:"Material 25% acima do orçado.",o:[{t:"Compro assim",s:1},{t:"Busco desconto",s:2},{t:"Coto alternativa técnica",s:4},{t:"Reporto ao cliente",s:3}]},
+{ct:"Equipe",q:"Mestre de obra e encarregado em conflito.",o:[{t:"Ignoro",s:1},{t:"Troco um deles",s:2},{t:"Reunião de alinhamento",s:4},{t:"Separo funções",s:3}]},
+{ct:"Qualidade",q:"Acabamento fora do padrão especificado.",o:[{t:"Entrego assim",s:1},{t:"Corrige parcial",s:2},{t:"Refaz e documenta",s:4},{t:"Negocia com cliente",s:3}]}
+]},
+ju:{l:"Jurídico",i:"⚖️",c:"#4338CA",qs:[
+{ct:"Análise",q:"Contrato com cláusula ambígua favorecendo outra parte.",o:[{t:"Assino assim",s:1},{t:"Questiono verbalmente",s:2},{t:"Proponho redação clara",s:4},{t:"Rejeito contrato",s:3}]},
+{ct:"Prazo",q:"3 prazos processuais na mesma semana.",o:[{t:"Faço na ordem",s:2},{t:"Priorizo por risco",s:4},{t:"Peço extensão",s:1},{t:"Delego sem revisar",s:3}]},
+{ct:"Compliance",q:"Empresa atuando sem licença necessária.",o:[{t:"Ignoro",s:1},{t:"Aviso casualmente",s:2},{t:"Documento e exijo regularização",s:4},{t:"Reporto ao compliance",s:3}]},
+{ct:"Sigilo",q:"Colega pede informação de processo confidencial.",o:[{t:"Compartilho",s:1},{t:"Resumo geral",s:2},{t:"Mantenho sigilo total",s:4},{t:"Consulto gestor",s:3}]},
+{ct:"Negociação",q:"Parte contrária propõe acordo abaixo do justo.",o:[{t:"Aceito",s:1},{t:"Rejeito sem contraproposta",s:2},{t:"Contraproponho com embasamento",s:4},{t:"Consulto cliente",s:3}]},
+{ct:"Atualização",q:"Nova lei impacta contratos vigentes.",o:[{t:"Ignoro",s:1},{t:"Estudo depois",s:2},{t:"Analiso impacto e comunico",s:4},{t:"Espero jurisprudência",s:3}]}
+]},
+ed:{l:"Educação",i:"📚",c:"#0D9488",qs:[
+{ct:"Didática",q:"Turma não entende o conteúdo mesmo após explicação.",o:[{t:"Repito igual",s:1},{t:"Sigo em frente",s:2},{t:"Mudo abordagem",s:4},{t:"Dou exercício",s:3}]},
+{ct:"Disciplina",q:"Aluno desrespeitando colegas durante aula.",o:[{t:"Ignoro",s:1},{t:"Expulso da sala",s:2},{t:"Converso e redireciono",s:4},{t:"Mando à coordenação",s:3}]},
+{ct:"Planejamento",q:"Semana de provas e conteúdo atrasado.",o:[{t:"Aplico prova assim",s:1},{t:"Corto conteúdo",s:2},{t:"Reorganizo cronograma",s:4},{t:"Aula extra",s:3}]},
+{ct:"Inclusão",q:"Aluno com dificuldade de aprendizagem sem laudo.",o:[{t:"Trato igual",s:1},{t:"Ignoro diferenças",s:2},{t:"Adapto atividades",s:4},{t:"Encaminho ao apoio",s:3}]},
+{ct:"Família",q:"Pai reclama da nota do filho agressivamente.",o:[{t:"Discuto",s:1},{t:"Mudo a nota",s:2},{t:"Acolho e explico critérios",s:4},{t:"Encaminho à direção",s:3}]},
+{ct:"Inovação",q:"Escola pede uso de tecnologia, mas você não domina.",o:[{t:"Recuso",s:1},{t:"Uso básico",s:2},{t:"Estudo e aplico",s:4},{t:"Peço ajuda",s:3}]}
+]},
+mo:{l:"Motorista",i:"🚗",c:"#CA8A04",qs:[
+{ct:"Pontualidade",q:"Trânsito intenso, vai atrasar 30 min.",o:[{t:"Não aviso",s:1},{t:"Aviso ao chegar",s:2},{t:"Comunico imediato e sugiro rota",s:4},{t:"Acelero perigosamente",s:3}]},
+{ct:"Segurança",q:"Veículo com freio fazendo barulho estranho.",o:[{t:"Continuo",s:1},{t:"Vejo depois",s:2},{t:"Paro e reporto imediato",s:4},{t:"Dirijo devagar",s:3}]},
+{ct:"Responsabilidade",q:"Carga de alto valor sem escolta.",o:[{t:"Sigo normal",s:1},{t:"Mudo rota sozinho",s:2},{t:"Comunico e sigo protocolo",s:4},{t:"Peço escolta",s:3}]},
+{ct:"Documentação",q:"Multa por irregularidade do veículo da empresa.",o:[{t:"Escondo",s:1},{t:"Pago e não falo",s:2},{t:"Reporto e documenta",s:4},{t:"Aviso no fim do dia",s:3}]},
+{ct:"Cliente",q:"Cliente reclama de atraso na entrega.",o:[{t:"Ignoro",s:1},{t:"Justifico",s:2},{t:"Peço desculpas e resolvo",s:4},{t:"Culpo a empresa",s:3}]},
+{ct:"Manutenção",q:"Checklist diário do veículo.",o:[{t:"Nunca faço",s:1},{t:"Quando lembro",s:2},{t:"Faço rigorosamente",s:4},{t:"Faço por cima",s:3}]}
+]},
+pr:{l:"Produção Industrial",i:"🏭",c:"#78716C",qs:[
+{ct:"Qualidade",q:"Lote com 5% de defeito acima do aceitável.",o:[{t:"Despacho assim",s:1},{t:"Separo os piores",s:2},{t:"Paro e investigo causa",s:4},{t:"Reporto ao supervisor",s:3}]},
+{ct:"Segurança",q:"Máquina com proteção desativada para produzir mais.",o:[{t:"Continuo",s:1},{t:"Aviso depois do turno",s:2},{t:"Paro e reativo proteção",s:4},{t:"Reporto imediato",s:3}]},
+{ct:"Produtividade",q:"Meta aumentou 20% sem mais recursos.",o:[{t:"Digo impossível",s:1},{t:"Mesmo ritmo",s:2},{t:"Otimizo processo",s:4},{t:"Peço hora extra",s:3}]},
+{ct:"Equipe",q:"Colega novo não consegue acompanhar ritmo.",o:[{t:"Ignoro",s:1},{t:"Reclamo ao chefe",s:2},{t:"Ajudo e oriento",s:4},{t:"Compenso por ele",s:3}]},
+{ct:"Manutenção",q:"Equipamento com ruído anormal.",o:[{t:"Continuo",s:1},{t:"Desligo no intervalo",s:2},{t:"Paro e chamo manutenção",s:4},{t:"Registro no log",s:3}]},
+{ct:"Melhoria",q:"Processo repetitivo com desperdício visível.",o:[{t:"Sempre foi assim",s:1},{t:"Comento com colega",s:2},{t:"Proponho melhoria formal",s:4},{t:"Reduzo sozinho",s:3}]}
+]},
+ds:{l:"Design/Criativo",i:"🎨",c:"#DB2777",qs:[
+{ct:"Briefing",q:"Cliente muda briefing pela 3ª vez.",o:[{t:"Faço sem questionar",s:1},{t:"Reclamo",s:2},{t:"Alinhou escopo e limites",s:4},{t:"Cobro extra",s:3}]},
+{ct:"Prazo",q:"3 projetos para entregar na mesma semana.",o:[{t:"Faço tudo rápido",s:1},{t:"Atraso todos",s:2},{t:"Priorizo e comunico",s:4},{t:"Peço ajuda",s:3}]},
+{ct:"Crítica",q:"Cliente rejeita proposta que você considera excelente.",o:[{t:"Desisto",s:1},{t:"Insisto na minha",s:2},{t:"Entendo motivos e adapto",s:4},{t:"Apresento alternativa",s:3}]},
+{ct:"Tendências",q:"Estilo que você domina está ficando ultrapassado.",o:[{t:"Continuo nele",s:1},{t:"Ignoro tendência",s:2},{t:"Estudo e incorporo",s:4},{t:"Mesclo estilos",s:3}]},
+{ct:"Colaboração",q:"Desenvolvedor diz que seu layout é impossível de implementar.",o:[{t:"Exijo que faça",s:1},{t:"Simplifico tudo",s:2},{t:"Dialogo e ajusto junto",s:4},{t:"Faço outro do zero",s:3}]},
+{ct:"Marca",q:"Cliente quer logo idêntico ao do concorrente.",o:[{t:"Faço igual",s:1},{t:"Recuso o job",s:2},{t:"Explico riscos e proponho original",s:4},{t:"Faço parecido",s:3}]}
+]},
+sg:{l:"Segurança",i:"🛡️",c:"#1E3A5F",qs:[
+{ct:"Vigilância",q:"Pessoa suspeita rondando o perímetro.",o:[{t:"Ignoro",s:1},{t:"Observo de longe",s:2},{t:"Abordo por protocolo",s:4},{t:"Chamo reforço",s:3}]},
+{ct:"Protocolo",q:"Visitante sem identificação quer entrar.",o:[{t:"Deixo entrar",s:1},{t:"Peço nome só",s:2},{t:"Sigo protocolo completo",s:4},{t:"Chamo responsável",s:3}]},
+{ct:"Emergência",q:"Alarme de incêndio dispara.",o:[{t:"Ignoro, deve ser falso",s:1},{t:"Espero confirmação",s:2},{t:"Evacuo e verifico",s:4},{t:"Chamo bombeiros direto",s:3}]},
+{ct:"Conflito",q:"Funcionário alterado quer forçar entrada fora do horário.",o:[{t:"Deixo entrar",s:1},{t:"Discuto",s:2},{t:"Mantenho calma e protocolo",s:4},{t:"Chamo superior",s:3}]},
+{ct:"Relatório",q:"Ocorrência durante a madrugada.",o:[{t:"Não registro",s:1},{t:"Registro no dia seguinte",s:2},{t:"Documento imediato e detalhado",s:4},{t:"Aviso verbalmente",s:3}]},
+{ct:"Ronda",q:"Chuva forte no horário da ronda externa.",o:[{t:"Não faço",s:1},{t:"Faço rápido",s:2},{t:"Faço completa com atenção",s:4},{t:"Monitoro por câmera",s:3}]}
+]},
+al:{l:"Alimentação",i:"🍳",c:"#EA580C",qs:[
+{ct:"Higiene",q:"Colega manipulando alimento sem luvas.",o:[{t:"Ignoro",s:1},{t:"Comento depois",s:2},{t:"Oriento na hora",s:4},{t:"Reporto ao supervisor",s:3}]},
+{ct:"Pressão",q:"Pedidos acumulando no horário de pico.",o:[{t:"Entrego com atraso",s:1},{t:"Pulo etapas",s:2},{t:"Organizo e priorizo",s:4},{t:"Peço ajuda",s:3}]},
+{ct:"Qualidade",q:"Ingrediente com aparência duvidosa.",o:[{t:"Uso assim",s:1},{t:"Tempero mais",s:2},{t:"Descarto e substituo",s:4},{t:"Consulto chef",s:3}]},
+{ct:"Estoque",q:"Falta ingrediente essencial do cardápio.",o:[{t:"Tiro do cardápio",s:1},{t:"Improviso sem avisar",s:2},{t:"Informo cliente e sugiro",s:4},{t:"Busco emergencial",s:3}]},
+{ct:"Equipe",q:"Auxiliar novo muito lento no preparo.",o:[{t:"Reclamo",s:1},{t:"Faço por ele",s:2},{t:"Ensino técnicas",s:4},{t:"Mudo de função",s:3}]},
+{ct:"Cliente",q:"Cliente reclama do prato na mesa.",o:[{t:"Ignoro",s:1},{t:"Justifico",s:2},{t:"Recolho e resolvo rápido",s:4},{t:"Chamo gerente",s:3}]}
+]},
+ve:{l:"Vendedor Externo",i:"🚶",c:"#7C2D12",qs:[
+{ct:"Prospecção",q:"Região nova sem nenhum contato.",o:[{t:"Espero indicação",s:1},{t:"Visita aleatória",s:2},{t:"Mapeio e planejo rota",s:4},{t:"Pesquiso online",s:3}]},
+{ct:"Rejeição",q:"5 clientes seguidos recusaram reunião.",o:[{t:"Desisto da região",s:1},{t:"Mesmo discurso",s:2},{t:"Revejo abordagem",s:4},{t:"Mudo horário",s:3}]},
+{ct:"Negociação",q:"Cliente pede 30% de desconto ou não fecha.",o:[{t:"Dou desconto",s:1},{t:"Perco venda",s:2},{t:"Negocio contrapartida",s:4},{t:"Consulto gerência",s:3}]},
+{ct:"Organização",q:"10 visitas para fazer, cidades diferentes.",o:[{t:"Saio sem planejar",s:1},{t:"Faço as mais perto",s:2},{t:"Roteirizo por eficiência",s:4},{t:"Reagendo por telefone",s:3}]},
+{ct:"Pós-venda",q:"Cliente fecha, mas concorrente ofereceu menos.",o:[{t:"Ignoro",s:1},{t:"Só se reclamar",s:2},{t:"Contato proativo de valor",s:4},{t:"Ofereço desconto",s:3}]},
+{ct:"Relatório",q:"Fim do dia, precisa registrar visitas.",o:[{t:"Não registro",s:1},{t:"Registro resumido",s:2},{t:"Registro completo com insights",s:4},{t:"Registro no dia seguinte",s:3}]}
+]}
+});
+
 const PROFS=[{min:90,l:"EXCEPCIONAL",c:"#059669",bg:"#ECFDF5",e:"⭐"},{min:75,l:"FORTE",c:"#0369A1",bg:"#F0F9FF",e:"✅"},{min:55,l:"MODERADO",c:"#B45309",bg:"#FFFBEB",e:"⚠️"},{min:0,l:"INSUFICIENTE",c:"#DC2626",bg:"#FEF2F2",e:"❌"}];
 function gP(p){return PROFS.find(t=>p>=t.min);}
 function sh(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
@@ -456,13 +546,28 @@ let S={sc:"login",ses:null,tab:"dash_home",err:"",
 lU:"",lP:"",rN:"",rU:"",rP:"",rOk:false,
 cn:"",ce:"",cp:"",ccpf:"",cbi:"",cma:"",cch:"",ced:"",cex:"",csa:"",cav:"",cj:"",
 di:0,da:{},dF:true,dO:[],qi:0,qA:{},qO:[],qF:true,t0:null,dur:0,
-ca:[],sr:"",sf:"",sel:null,cmpL:[],
+ca:[],sr:"",sf:"",sel:null,cmpL:[],linkJob:"",remCid:"",remJob:"",remToken:"",remPct:0,
 em:[],sEm:null,eFm:false,editEm:null,ef:{name:"",email:"",phone:"",cpf:"",birth:"",role:"",dept:"",salary:"",hireDate:"",status:"Ativo"},
 pa:[],pFm:false,pf:{empId:"",type:"Salário",month:"",year:"",value:"",notes:""},
 va:[],vFm:false,vf:{empId:"",type:"Férias",startDate:"",endDate:"",notes:"",status:"Agendado"},
 aCo:[]};
 
-function init(){const s=LS.get("ses");if(s&&s.cid){const cos=LS.get("cos")||[];if(cos.find(c=>c.id===s.cid)){S.ses=s;S.ca=LS.get("ca-"+s.cid)||[];S.em=LS.get("em-"+s.cid)||[];S.pa=LS.get("pa-"+s.cid)||[];S.va=LS.get("va-"+s.cid)||[];S.sc="dash";}}render();}
+function init(){
+// Check for remote assessment link: #assess/companyId/jobKey/token
+const hash=window.location.hash;
+if(hash.startsWith('#assess/')){
+  const parts=hash.slice(8).split('/');
+  if(parts.length>=3){
+    const cid=parts[0],jk=parts[1],tk=parts[2];
+    if(JOBS[jk]){
+      S.remCid=cid;S.remJob=jk;S.remToken=tk;S.cj=jk;S.sc="remote_form";
+      document.getElementById('platform').classList.add('active');
+      document.body.style.overflow='hidden';
+      render();return;
+    }
+  }
+}
+const s=LS.get("ses");if(s&&s.cid){const cos=LS.get("cos")||[];if(cos.find(c=>c.id===s.cid)){S.ses=s;S.ca=LS.get("ca-"+s.cid)||[];S.em=LS.get("em-"+s.cid)||[];S.pa=LS.get("pa-"+s.cid)||[];S.va=LS.get("va-"+s.cid)||[];S.sc="dash";}}render();}
 function u(patch){Object.assign(S,patch);render();}
 function render(){document.getElementById("app-root").innerHTML=renderApp();window.scrollTo&&document.getElementById("platform").classList.contains("active")&&window.scrollTo(0,0);}
 
@@ -476,7 +581,18 @@ function svVa(){if(S.ses)LS.set("va-"+S.ses.cid,S.va);}
 function startA(){if(!S.cn.trim()||!S.cj)return;S.t0=Date.now();S.dO=sh(["D","I","S","C"]);u({sc:"disc"});}
 function aD(l){S.da[S.di]=l;S.dF=false;render();setTimeout(()=>{if(S.di<DISC.length-1)S.di++;else{S.sc="quiz";S.qO=sh(JOBS[S.cj].qs[0].o);}S.dF=true;render();},200);}
 function aQ(i){const qs=JOBS[S.cj].qs;S.qA[S.qi]=S.qO[i].s;S.qF=false;render();setTimeout(()=>{if(S.qi<qs.length-1){S.qi++;S.qO=sh(qs[S.qi].o);}else{S.dur=Math.round((Date.now()-S.t0)/1000);savC();S.sc="result";}S.qF=true;render();},200);}
-function savC(){const qs=JOBS[S.cj].qs;const cats={};qs.forEach((q,i)=>{if(S.qA[i]!==undefined)cats[q.ct]={s:S.qA[i],pct:Math.round((S.qA[i]/4)*100)};});const ts=Object.values(S.qA).reduce((a,b)=>a+b,0);const mx=qs.length*4;const pc=mx?Math.round((ts/mx)*100):0;const disc={};if(Object.keys(S.da).length===DISC.length){const c2={D:0,I:0,S:0,C:0};Object.values(S.da).forEach(v=>c2[v]++);Object.keys(c2).forEach(k=>disc[k]=Math.round((c2[k]/DISC.length)*100));}S.ca.push({id:uid(),name:S.cn.trim(),email:S.ce,phone:S.cp,pd:{cpf:S.ccpf,birth:S.cbi,marital:S.cma,children:S.cch,edu:S.ced,exp:S.cex,salary:S.csa,avail:S.cav},job:JOBS[S.cj].l,jk:S.cj,ts,mx,pct:pc,prof:gP(pc).l,cats,disc,dur:S.dur,date:new Date().toLocaleDateString("pt-BR"),stamp:Date.now()});svCa();}
+function savC(){const qs=JOBS[S.cj].qs;const cats={};qs.forEach((q,i)=>{if(S.qA[i]!==undefined)cats[q.ct]={s:S.qA[i],pct:Math.round((S.qA[i]/4)*100)};});const ts=Object.values(S.qA).reduce((a,b)=>a+b,0);const mx=qs.length*4;const pc=mx?Math.round((ts/mx)*100):0;const disc={};if(Object.keys(S.da).length===DISC.length){const c2={D:0,I:0,S:0,C:0};Object.values(S.da).forEach(v=>c2[v]++);Object.keys(c2).forEach(k=>disc[k]=Math.round((c2[k]/DISC.length)*100));}
+const newC={id:uid(),name:S.cn.trim(),email:S.ce,phone:S.cp,pd:{cpf:S.ccpf,birth:S.cbi,marital:S.cma,children:S.cch,edu:S.ced,exp:S.cex,salary:S.csa,avail:S.cav},job:JOBS[S.cj].l,jk:S.cj,ts,mx,pct:pc,prof:gP(pc).l,cats,disc,dur:S.dur,date:new Date().toLocaleDateString("pt-BR"),stamp:Date.now(),remote:!!S.remCid};
+// If remote assessment, save to the company's localStorage data
+if(S.remCid){
+  const caCid=LS.get("ca-"+S.remCid)||[];
+  caCid.push(newC);
+  LS.set("ca-"+S.remCid,caCid);
+  S.remPct=pc;S.sc="remote_done";
+  window.location.hash="";
+  render();return;
+}
+S.ca.push(newC);svCa();}
 function resC(){u({cn:"",ce:"",cp:"",ccpf:"",cbi:"",cma:"",cch:"",ced:"",cex:"",csa:"",cav:"",cj:"",di:0,da:{},qi:0,qA:{},dur:0,sc:"dash"});}
 function hire(idx){const c=S.ca[idx];S.em.push({id:uid(),name:c.name,email:c.email,phone:c.phone,cpf:c.pd?.cpf||"",birth:c.pd?.birth||"",role:c.job||"",dept:"",salary:c.pd?.salary||"",hireDate:new Date().toLocaleDateString("pt-BR"),status:"Ativo",fromR:true,rPct:c.pct,rProf:c.prof});svEm();u({tab:"employees"});}
 function delCa(idx){S.ca.splice(idx,1);svCa();S.sel=null;render();}
@@ -514,7 +630,7 @@ if(s.sc==="register"){h+=`<div class="p-gl p-fi" style="padding:28px"><div style
 
 // DASHBOARD
 if(s.sc==="dash"&&s.ses){
-h+=`<div class="p-fi"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b style="font-size:14px">🏢 ${s.ses.name}</b><div style="display:flex;gap:6px"><button onclick="u({sc:'candidate'})" style="${btn('#059669','#fff','padding:8px 12px;font-size:13px')}">+ Avaliação</button><button onclick="logout()" style="${btn('rgba(220,38,38,.15)','#F87171','padding:8px 10px;font-size:13px')}">Sair</button></div></div>`;
+h+=`<div class="p-fi"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><b style="font-size:14px">🏢 ${s.ses.name}</b><div style="display:flex;gap:6px"><button onclick="u({sc:'candidate'})" style="${btn('#059669','#fff','padding:8px 12px;font-size:13px')}">+ Avaliação</button><button onclick="u({sc:'sendLink'})" style="${btn('#3B82F6','#fff','padding:8px 12px;font-size:13px')}">📲 Enviar Link</button><button onclick="logout()" style="${btn('rgba(220,38,38,.15)','#F87171','padding:8px 10px;font-size:13px')}">Sair</button></div></div>`;
 const tabs=[["dash_home","📊 Dashboard"],["recruit","🎯 Recrutamento"],["employees","👥 Funcionários"],["payments","💰 Pagamentos"],["vacations","🏖️ Férias"]];
 h+=`<div style="display:flex;gap:2px;overflow-x:auto;margin-bottom:12px">`;tabs.forEach(([k,l])=>{const ac=s.tab===k;h+=`<button onclick="u({tab:'${k}',sel:null,sEm:null})" style="padding:8px 12px;border:none;background:${ac?'rgba(139,92,246,.15)':'transparent'};color:${ac?'#A78BFA':'#64748B'};font-size:13px;font-weight:${ac?700:500};cursor:pointer;border-bottom:${ac?'2px solid #A78BFA':'none'};border-radius:6px 6px 0 0;white-space:nowrap">${l}</button>`;});h+=`</div>`;
 
@@ -547,7 +663,7 @@ Object.values(JOBS).forEach(j=>{h+=`<option value="${j.l}" ${s.sf===j.l?'selecte
 const fCa=s.ca.filter(e=>(!s.sr||e.name.toLowerCase().includes(s.sr.toLowerCase()))&&(!s.sf||e.job===s.sf)).sort((a,b)=>b.stamp-a.stamp);
 if(!fCa.length)h+=`<div class="p-gl" style="padding:30px;text-align:center;color:#64748B">Sem candidatos${s.sr||s.sf?" para este filtro":". Clique '+ Avaliação'"}.</div>`;
 else fCa.forEach(e=>{const p=gP(e.pct);const ci=s.ca.indexOf(e);const chk=s.cmpL.includes(e.id);
-h+=`<div class="p-gl" style="padding:14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:10px"><input type="checkbox" ${chk?'checked':''} onchange="S.cmpL=${chk}?S.cmpL.filter(x=>x!=='${e.id}'):[...S.cmpL,'${e.id}'];render()" style="accent-color:#8B5CF6"><div><div style="font-size:15px;font-weight:600">${e.name}</div><div style="font-size:12px;color:#64748B">${e.job} • ${e.date}</div></div></div><div style="display:flex;align-items:center;gap:6px"><div style="text-align:center"><div style="font-size:16px;font-weight:800;color:${p.c}">${e.pct}%</div><span style="font-size:8px;padding:1px 4px;border-radius:3px;background:${p.bg};color:${p.c}">${p.e}</span></div><div style="display:flex;flex-direction:column;gap:3px"><button onclick="S.sel=S.sel&&S.sel.id==='${e.id}'?null:S.ca[${ci}];render()" style="background:rgba(99,102,241,.1);border:none;color:#A78BFA;padding:4px 8px;border-radius:4px;font-size:12px;cursor:pointer">Ver</button><button onclick="hire(${ci})" style="background:rgba(5,150,105,.1);border:none;color:#059669;padding:4px 8px;border-radius:4px;font-size:12px;cursor:pointer">Contratar</button><button onclick="if(confirm('Excluir?'))delCa(${ci})" style="background:rgba(220,38,38,.1);border:none;color:#F87171;padding:4px 8px;border-radius:4px;font-size:12px;cursor:pointer">✕</button></div></div></div>`;});
+h+=`<div class="p-gl" style="padding:14px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:10px"><input type="checkbox" ${chk?'checked':''} onchange="S.cmpL=${chk}?S.cmpL.filter(x=>x!=='${e.id}'):[...S.cmpL,'${e.id}'];render()" style="accent-color:#8B5CF6"><div><div style="font-size:15px;font-weight:600">${e.name}</div><div style="font-size:12px;color:#64748B">${e.job} • ${e.date}${e.remote?' <span style="font-size:9px;padding:1px 5px;border-radius:3px;background:rgba(59,130,246,.15);color:#60A5FA">📲 Remoto</span>':''}</div></div></div><div style="display:flex;align-items:center;gap:6px"><div style="text-align:center"><div style="font-size:16px;font-weight:800;color:${p.c}">${e.pct}%</div><span style="font-size:8px;padding:1px 4px;border-radius:3px;background:${p.bg};color:${p.c}">${p.e}</span></div><div style="display:flex;flex-direction:column;gap:3px"><button onclick="S.sel=S.sel&&S.sel.id==='${e.id}'?null:S.ca[${ci}];render()" style="background:rgba(99,102,241,.1);border:none;color:#A78BFA;padding:4px 8px;border-radius:4px;font-size:12px;cursor:pointer">Ver</button><button onclick="hire(${ci})" style="background:rgba(5,150,105,.1);border:none;color:#059669;padding:4px 8px;border-radius:4px;font-size:12px;cursor:pointer">Contratar</button><button onclick="if(confirm('Excluir?'))delCa(${ci})" style="background:rgba(220,38,38,.1);border:none;color:#F87171;padding:4px 8px;border-radius:4px;font-size:12px;cursor:pointer">✕</button></div></div></div>`;});
 if(s.sel){const e=s.sel;h+=`<div class="p-gl" style="padding:16px;margin-top:10px"><div style="display:flex;justify-content:space-between"><b style="font-size:16px">${e.name}</b><div style="display:flex;gap:6px"><button onclick="exportPDF(S.sel)" style="background:rgba(99,102,241,.1);border:none;color:#A78BFA;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer">📄 PDF</button><button onclick="shareWA(S.sel)" style="background:rgba(37,211,102,.1);border:none;color:#25D366;padding:4px 10px;border-radius:4px;font-size:12px;cursor:pointer">📱 WhatsApp</button><button onclick="S.sel=null;render()" style="background:none;border:none;color:#64748B;cursor:pointer;font-size:14px">✕</button></div></div>`;
 h+=`<div style="font-size:14px;color:#94A3B8;margin-top:4px">${e.job} • ${e.pct}% • ${fT(e.dur)}</div>`;
 if(e.disc&&Object.keys(e.disc).length){h+=`<div style="margin-top:10px"><b style="font-size:13px;color:#A78BFA">DISC</b>`;Object.entries(e.disc).sort((a,b)=>b[1]-a[1]).forEach(([k,v])=>{h+=`<div style="margin-top:6px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:13px">${DL[k].n}</span><span style="font-size:13px;color:${DL[k].c};font-weight:700">${v}%</span></div>${barH(v,DL[k].c)}</div>`;});h+=`</div>`;}
@@ -605,7 +721,49 @@ h+=`<button onclick="resC()" style="${btn('linear-gradient(135deg,#6366F1,#8B5CF
 // SUPER ADMIN
 if(s.sc==="super"){h+=`<div class="p-fi"><div class="p-gl" style="padding:16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><b style="color:#A78BFA">🔑 Super Admin</b><button onclick="u({sc:'login'})" style="${btn('rgba(220,38,38,.1)','#F87171','')}">Sair</button></div><div class="p-gl" style="padding:16px"><b style="font-size:13px;color:#A78BFA">Empresas (${s.aCo.length})</b>`;if(!s.aCo.length)h+=`<p style="color:#64748B;font-size:12px;margin-top:8px">Nenhuma.</p>`;else s.aCo.forEach(co=>{h+=`<div style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)"><div style="font-size:14px;font-weight:600">${co.name}</div><div style="font-size:13px;color:#64748B">${co.user}</div></div>`;});h+=`</div></div>`;}
 
+// SEND LINK SCREEN
+if(s.sc==="sendLink"){
+h+=`<div class="p-fi"><button onclick="u({sc:'dash'})" style="background:none;border:none;color:#A78BFA;font-size:12px;cursor:pointer;margin-bottom:10px">← Painel</button>`;
+h+=`<div class="p-gl" style="padding:22px;margin-bottom:14px"><div style="text-align:center;margin-bottom:16px"><div style="font-size:44px">📲</div><h2 style="font-size:20px;color:#3B82F6;margin-top:6px">Enviar Link de Avaliação</h2><p style="font-size:13px;color:#94A3B8;margin-top:4px">O candidato faz o teste pelo celular e o resultado aparece automaticamente no seu painel.</p></div>`;
+h+=`<div style="margin-bottom:14px"><label style="font-size:13px;color:#94A3B8;display:block;margin-bottom:3px">Selecione o cargo da vaga</label><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px">`;
+Object.entries(JOBS).forEach(([k,v])=>{h+=`<button onclick="S.linkJob='${k}';render()" style="padding:10px;border-radius:10px;border:2px solid ${s.linkJob===k?v.c:'#334155'};background:transparent;cursor:pointer;text-align:left"><span style="font-size:18px">${v.i}</span><div style="font-size:12px;font-weight:700;color:${s.linkJob===k?v.c:'#E2E8F0'};margin-top:2px">${v.l}</div></button>`;});
+h+=`</div></div>`;
+if(s.linkJob){
+const token=uid();const linkUrl=window.location.origin+window.location.pathname+'#assess/'+s.ses.cid+'/'+s.linkJob+'/'+token;
+const waMsg=encodeURIComponent(`🧠 *ManegAI — Avaliação de Candidato*\n\nOlá! Você foi convidado(a) para uma avaliação para a vaga de *${JOBS[s.linkJob].l}*.\n\n📋 Clique no link abaixo para iniciar:\n${linkUrl}\n\n⏱️ Leva apenas 3 minutos.\n📱 Funciona no celular.\n\n_Enviado via ManegAI_`);
+h+=`<div style="margin-top:12px;padding:16px;border-radius:12px;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2)">`;
+h+=`<p style="font-size:13px;color:#94A3B8;margin-bottom:8px">Link gerado para <b style="color:${JOBS[s.linkJob].c}">${JOBS[s.linkJob].i} ${JOBS[s.linkJob].l}</b>:</p>`;
+h+=`<div style="padding:10px;border-radius:8px;background:rgba(0,0,0,.3);word-break:break-all;font-size:11px;color:#93C5FD;margin-bottom:12px;cursor:pointer" onclick="navigator.clipboard.writeText('${linkUrl}');this.innerHTML='✅ Copiado!';setTimeout(()=>this.innerHTML='${linkUrl.replace(/'/g,"\\'")}',2000)">${linkUrl}</div>`;
+h+=`<div style="display:flex;gap:8px"><a href="https://wa.me/?text=${waMsg}" target="_blank" rel="noopener" style="${btn('#25D366','#fff','flex:1;text-align:center;text-decoration:none;display:block;padding:12px')}">📱 Enviar via WhatsApp</a>`;
+h+=`<button onclick="navigator.clipboard.writeText('${linkUrl}');this.textContent='✅ Copiado!';setTimeout(()=>this.textContent='📋 Copiar Link',2000)" style="${btn('rgba(99,102,241,.15)','#A78BFA','flex:1')}">📋 Copiar Link</button></div>`;
+h+=`</div>`;}
+h+=`</div></div>`;}
+
+// REMOTE ASSESSMENT (candidato externo via link)
+if(s.sc==="remote_form"){
+h+=`<div class="p-fi"><div class="p-gl" style="padding:22px;margin-bottom:14px"><div style="text-align:center;margin-bottom:16px"><div style="font-size:44px">📋</div><h2 style="font-size:20px;color:#3B82F6;margin-top:6px">Avaliação — ${JOBS[s.remJob]?.l||''}</h2><p style="font-size:13px;color:#94A3B8;margin-top:4px">Preencha seus dados e inicie a avaliação. Leva apenas 3 minutos.</p></div>`;
+h+=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">`;
+[{l:"Nome completo*",k:"cn",sp:true},{l:"Email",k:"ce"},{l:"Telefone",k:"cp"}].forEach(f=>{h+=`<div${f.sp?' style="grid-column:1/-1"':''}><label style="font-size:14px;color:#94A3B8">${f.l}</label><input value="${s[f.k]}" oninput="S.${f.k}=this.value" style="${I}font-size:14px;"></div>`;});
+h+=`</div>`;
+const canStart=s.cn.trim();
+h+=`<button onclick="S.cj=S.remJob;startA()" ${canStart?'':'disabled'} style="${btn(canStart?'linear-gradient(135deg,#3B82F6,#6366F1)':'#334155',canStart?'#fff':'#64748B','width:100%;margin-top:14px;padding:14px;font-size:15px;cursor:'+(canStart?'pointer':'not-allowed'))}">INICIAR AVALIAÇÃO →</button>`;
+h+=`</div></div>`;}
+
+// REMOTE RESULT (shown to candidate after completing)
+if(s.sc==="remote_done"){
+const pRf=gP(s.remPct);
+h+=`<div class="p-fi"><div class="p-gl" style="padding:28px;text-align:center"><div style="font-size:50px;margin-bottom:8px">✅</div><h2 style="font-size:22px;color:#34D399">Avaliação Concluída!</h2><p style="font-size:14px;color:#94A3B8;margin-top:8px">Obrigado, <b>${s.cn}</b>. Seu resultado foi enviado para a empresa.</p><div style="width:100px;height:100px;border-radius:50%;border:4px solid ${pRf.c};display:flex;align-items:center;justify-content:center;margin:20px auto"><span style="font-size:34px;font-weight:800;color:${pRf.c}">${s.remPct}%</span></div><div style="padding:6px 16px;border-radius:8px;background:${pRf.bg};display:inline-block"><span style="font-size:14px;font-weight:800;color:${pRf.c}">${pRf.e} ${pRf.l}</span></div><p style="font-size:12px;color:#64748B;margin-top:16px">Você pode fechar esta página.</p></div></div>`;}
+
 h+=`</div></div>`;return h;}
+
+// Event listener fallback for environments that block inline onclick
+document.addEventListener('click',function(e){
+  var btn=e.target.closest('[data-action]');
+  if(!btn)return;
+  var action=btn.getAttribute('data-action');
+  if(action==='open')openPlatform();
+  if(action==='close')closePlatform();
+});
 
 init();
 </script>
